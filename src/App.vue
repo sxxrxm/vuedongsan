@@ -11,35 +11,20 @@
     <a v-for="(a, i) in menus" :key="i">{{ a }}</a>
   </div>
 
-  <div>
-    <img src="./assets/jelly7.png" />
-    <h4 @click="modal_stat = true">{{ products[0] }}</h4>
-    <p>{{ prices[0] }} 만원</p>
-    <button @click="신고수[0]++">허위매물신고</button>
-    <span> 신고수 : {{ 신고수[0] }} </span>
-  </div>
-  <div>
-    <img src="./assets/jelly8.png" />
-    <h4>{{ products[1] }}</h4>
-    <p>{{ prices[1] }} 만원</p>
-    <button @click="신고수[1]++">허위매물신고</button>
-    <span> 신고수 : {{ 신고수[1] }} </span>
-  </div>
-  <div>
-    <img src="./assets/logo.png" />
-    <h4>{{ products[2] }}</h4>
-    <p>{{ prices[2] }} 만원</p>
-    <button @click="신고수[2]++">허위매물신고</button>
-    <span> 신고수 : {{ 신고수[2] }} </span>
+  <div v-for="(a, i) in 원룸들" :key="i">
+    <img :src="원룸들[i].image" class="room-img" />
+    <h4 @click="modal_stat = true">{{ 원룸들[i].title }}</h4>
+    <p>{{ 원룸들[i].price }} 원</p>
   </div>
 </template>
 
 <script>
+import room_info from "./data";
 export default {
   name: "App",
   data() {
     return {
-      products: ["역삼동 원룸", "천호동 원룸", "마포구 원룸"],
+      원룸들: room_info,
       prices: [50, 60, 70],
       menus: ["Home", "Shop", "About"],
       신고수: [0, 0, 0],

@@ -3,9 +3,23 @@
     <a v-for="(a, i) in menus" :key="i">{{ a }}</a>
   </div>
 
-  <div v-for="(a, i) in products" :key="i">
-    <h4>{{ products[i] }}</h4>
-    <p>{{ prices[i] }} 만원</p>
+  <div>
+    <h4>{{ products[0] }}</h4>
+    <p>{{ prices[0] }} 만원</p>
+    <button @click="신고수[0]++">허위매물신고</button>
+    <span> 신고수 : {{ 신고수[0] }} </span>
+  </div>
+  <div>
+    <h4>{{ products[1] }}</h4>
+    <p>{{ prices[1] }} 만원</p>
+    <button @click="신고수[1]++">허위매물신고</button>
+    <span> 신고수 : {{ 신고수[1] }} </span>
+  </div>
+  <div>
+    <h4>{{ products[2] }}</h4>
+    <p>{{ prices[2] }} 만원</p>
+    <button @click="신고수[2]++">허위매물신고</button>
+    <span> 신고수 : {{ 신고수[2] }} </span>
   </div>
 </template>
 
@@ -17,7 +31,13 @@ export default {
       products: ["역삼동 원룸", "천호동 원룸", "마포구 원룸"],
       prices: [50, 60, 70],
       menus: ["Home", "Shop", "About"],
+      신고수: [0, 0, 0],
     };
+  },
+  methods: {
+    increase() {
+      this.신고수 += 1;
+    },
   },
   components: {},
 };
